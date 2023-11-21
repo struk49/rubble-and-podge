@@ -8,7 +8,11 @@ class Product(models.Model):
     slug = models.SlugField()
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    image = models.ImageField(upload_to='product/images/')
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
 
-def __unicode__(self):
-    return self.title
+    def __unicode__(self):
+        return self.title
+    

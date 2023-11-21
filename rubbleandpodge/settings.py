@@ -24,10 +24,8 @@ SECRET_KEY = 'django-insecure-d=3sn=k@2-1%*g*7$(tw1v#t!#m-73_7id#a!quibvgi91!0($
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-struk49-rubbleandpodge-b9wcttc71l5.ws-eu106.gitpod.io']
+ALLOWED_HOSTS = ['8000-struk49-rubbleandpodge-wzahus2s82c.ws-eu106.gitpod.io']
 
-MEDIA_ROOT = os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname(__file__), 'static', 'media'))))
-MEDIA_URL = ('/media/')
 
 # Application definition
 
@@ -58,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname(__file__)))), 'static', 'templates'),
+             os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -81,7 +79,7 @@ WSGI_APPLICATION = 'rubbleandpodge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -116,16 +114,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-STATIC_ROOT = os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname(__file__)))), 'static', 'staic-only'),
-
-STATICFILES_DIRS = (
-    os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname( os.path.join.dirname(__file__)))), 'static', 'static'),
-) 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
